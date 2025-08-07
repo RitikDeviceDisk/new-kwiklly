@@ -224,232 +224,46 @@
               Cisf ground, gali no 2, near metro station gate no 3, saket, Delhi
             </div>
 
-            <!-- Buttons: Home / Work -->
-            <div class="d-flex justify-content-between pata-tag-buttons">
-              <button id="pataHomeBtn2" class="pata-home">🏠 Home</button>
-              <button id="pataWorkBtn2" class="pata-work">🏢 Work</button>
-            </div>
-
-            <!-- Form Inputs -->
-            <div class="pata-input"><input type="text" placeholder="Area / Sector / Locality*" class="form-control">
-            </div>
-            <div class="pata-input"><input type="text" placeholder="Flat / Building no*" class="form-control"></div>
-            <div class="pata-input"><input type="text" placeholder="Landmark (optional)" class="form-control"></div>
-            <div class="pata-input"><input type="text" placeholder="Pincode*" class="form-control"></div>
-            <div class="pata-input"><input type="text" placeholder="Name*" class="form-control"></div>
-            <div class="pata-input"><input type="text" placeholder="Phone Number*" class="form-control"></div>
-            <div class="pata-input"><input type="text" placeholder="Alternate Phone Number (optional)"
-                class="form-control"></div>
-
-            <!-- Save Button -->
-            <button class="pata-save-btn">Save Address</button>
-          </div>
-
-        </div>
-        <div class="col-md-6 main-content-box">
-          <div class="address-section pataoverflow">
-            <div class="section-title text-center pt-3">
-              <h4>Your saved address for current location</h4>
-            </div>
-
-            <!-- Active Address -->
-            <div class="address-card selected">
-              <div class="address-left">
-                <img src="https://cdn-icons-png.flaticon.com/128/69/69524.png" alt="Home" class="icon">
-                <div>
-                  <strong>Home</strong>
-                  <p>ARYAN KUMAR, x 221, Okhla Phase 3 Road Okhla Phase III, Okhla Industrial Estate, New Delhi, Delhi,
-                    India</p>
-                </div>
-              </div>
-              <div class="address-right">
-                <label class="fancy-checkbox">
-                  <input type="checkbox">
-                  <span class="custom-checkmark">&#10003;</span>
-                </label>
-                <div class="dropdown-wrapper">
-                  <span class="options" onclick="toggleDropdown(this)">&#8942;</span>
-                  <div class="dropdown-menu">
-                    <div onclick="editAddress()">Edit</div>
-                    <div onclick="deleteAddress(this)">Delete</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Address Card 2 -->
-            <div class="address-card">
-              <div class="address-left">
-                <img src="https://cdn-icons-png.flaticon.com/128/609/609803.png" alt="Work" class="icon">
-                <div>
-                  <strong>Work</strong>
-                  <p>Rakesh, x 221, Okhla Phase 3 Road Okhla Phase III, Okhla Industrial Estate, New Delhi, Delhi, India
-                  </p>
-                </div>
-              </div>
-              <div class="address-right">
-                <label class="fancy-checkbox">
-                  <input type="checkbox">
-                  <span class="custom-checkmark">&#10003;</span>
-                </label>
-                <div class="dropdown-wrapper">
-                  <span class="options" onclick="toggleDropdown(this)">&#8942;</span>
-                  <div class="dropdown-menu">
-                    <div onclick="editAddress()">Edit</div>
-                    <div onclick="deleteAddress(this)">Delete</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="address-card selected">
-              <div class="address-left">
-                <img src="https://cdn-icons-png.flaticon.com/128/69/69524.png" alt="Home" class="icon">
-                <div>
-                  <strong>Home</strong>
-                  <p>ARYAN KUMAR, x 221, Okhla Phase 3 Road Okhla Phase III, Okhla Industrial Estate, New Delhi, Delhi,
-                    India</p>
-                </div>
-              </div>
-              <div class="address-right">
-                <label class="fancy-checkbox">
-                  <input type="checkbox">
-                  <span class="custom-checkmark">&#10003;</span>
-                </label>
-                <div class="dropdown-wrapper">
-                  <span class="options" onclick="toggleDropdown(this)">&#8942;</span>
-                  <div class="dropdown-menu">
-                    <div onclick="editAddress()">Edit</div>
-                    <div onclick="deleteAddress(this)">Delete</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Address Card 2 -->
-            <div class="address-card">
-              <div class="address-left">
-                <img src="https://cdn-icons-png.flaticon.com/128/609/609803.png" alt="Work" class="icon">
-                <div>
-                  <strong>Work</strong>
-                  <p>Rakesh, x 221, Okhla Phase 3 Road Okhla Phase III, Okhla Industrial Estate, New Delhi, Delhi, India
-                  </p>
-                </div>
-              </div>
-              <div class="address-right">
-                <label class="fancy-checkbox">
-                  <input type="checkbox">
-                  <span class="custom-checkmark">&#10003;</span>
-                </label>
-                <div class="dropdown-wrapper">
-                  <span class="options" onclick="toggleDropdown(this)">&#8942;</span>
-                  <div class="dropdown-menu">
-                    <div onclick="editAddress()">Edit</div>
-                    <div onclick="deleteAddress(this)">Delete</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="address-card selected">
-              <div class="address-left">
-                <img src="https://cdn-icons-png.flaticon.com/128/69/69524.png" alt="Home" class="icon">
-                <div>
-                  <strong>Home</strong>
-                  <p>ARYAN KUMAR, x 221, Okhla Phase 3 Road Okhla Phase III, Okhla Industrial Estate, New Delhi, Delhi,
-                    India</p>
-                </div>
-              </div>
-              <div class="address-right">
-                <label class="fancy-checkbox">
-                  <input type="checkbox">
-                  <span class="custom-checkmark">&#10003;</span>
-                </label>
-                <div class="dropdown-wrapper">
-                  <span class="options" onclick="toggleDropdown(this)">&#8942;</span>
-                  <div class="dropdown-menu">
-                    <div onclick="editAddress()">Edit</div>
-                    <div onclick="deleteAddress(this)">Delete</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Address Card 2 -->
-            <div class="address-card">
-              <div class="address-left">
-                <img src="https://cdn-icons-png.flaticon.com/128/609/609803.png" alt="Work" class="icon">
-                <div>
-                  <strong>Work</strong>
-                  <p>Rakesh, x 221, Okhla Phase 3 Road Okhla Phase III, Okhla Industrial Estate, New Delhi, Delhi, India
-                  </p>
-                </div>
-              </div>
-              <div class="address-right">
-                <label class="fancy-checkbox">
-                  <input type="checkbox">
-                  <span class="custom-checkmark">&#10003;</span>
-                </label>
-                <div class="dropdown-wrapper">
-                  <span class="options" onclick="toggleDropdown(this)">&#8942;</span>
-                  <div class="dropdown-menu">
-                    <div onclick="editAddress()">Edit</div>
-                    <div onclick="deleteAddress(this)">Delete</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="address-card selected">
-              <div class="address-left">
-                <img src="https://cdn-icons-png.flaticon.com/128/69/69524.png" alt="Home" class="icon">
-                <div>
-                  <strong>Home</strong>
-                  <p>ARYAN KUMAR, x 221, Okhla Phase 3 Road Okhla Phase III, Okhla Industrial Estate, New Delhi, Delhi,
-                    India</p>
-                </div>
-              </div>
-              <div class="address-right">
-                <label class="fancy-checkbox">
-                  <input type="checkbox">
-                  <span class="custom-checkmark">&#10003;</span>
-                </label>
-                <div class="dropdown-wrapper">
-                  <span class="options" onclick="toggleDropdown(this)">&#8942;</span>
-                  <div class="dropdown-menu">
-                    <div onclick="editAddress()">Edit</div>
-                    <div onclick="deleteAddress(this)">Delete</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Address Card 2 -->
-            <div class="address-card">
-              <div class="address-left">
-                <img src="https://cdn-icons-png.flaticon.com/128/609/609803.png" alt="Work" class="icon">
-                <div>
-                  <strong>Work</strong>
-                  <p>Rakesh, x 221, Okhla Phase 3 Road Okhla Phase III, Okhla Industrial Estate, New Delhi, Delhi, India
-                  </p>
-                </div>
-              </div>
-              <div class="address-right">
-               <label class="fancy-checkbox">
-                  <input type="checkbox">
-                  <span class="custom-checkmark">&#10003;</span>
-                </label>
-                <div class="dropdown-wrapper">
-                  <span class="options" onclick="toggleDropdown(this)">&#8942;</span>
-                  <div class="dropdown-menu">
-                    <div onclick="editAddress()">Edit</div>
-                    <div onclick="deleteAddress(this)">Delete</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="text-end p-0 mt-3">
-         <button class="btn proceed-btn2">Proceed to Pay ₹347</button>
+          <!-- Buttons: Home / Work -->
+      <div class="d-flex justify-content-between pata-tag-buttons mb-3">
+        <button type="button" id="pataHomeBtn" class="pata-home active">🏠 Home</button>
+        <button type="button" id="pataWorkBtn" class="pata-work">🏢 Work</button>
       </div>
+
+      <!-- Address Form -->
+      <form id="addressForm">
+        <input type="hidden" id="addressId" name="id" value="">
+        <input type="hidden" name="type" id="addressType" value="home">
+        <div class="pata-input"><input type="text" name="area" placeholder="Area / Sector / Locality*" class="form-control" required></div>
+        <div class="pata-input"><input type="text" name="flat" placeholder="Flat / Building no*" class="form-control" required></div>
+        <div class="pata-input"><input type="text" name="landmark" placeholder="Landmark (optional)" class="form-control"></div>
+        <div class="pata-input"><input type="text" name="pincode" placeholder="Pincode*" class="form-control" required></div>
+        <div class="pata-input"><input type="text" name="name" placeholder="Name*" class="form-control" required></div>
+        <div class="pata-input"><input type="text" name="phone" placeholder="Phone Number*" class="form-control" required></div>
+        <div class="pata-input"><input type="text" name="alt_phone" placeholder="Alternate Phone Number (optional)" class="form-control"></div>
+
+        <button type="submit" class="pata-save-btn mt-3 w-100">Save Address</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- RIGHT: Address List -->
+  <div class="col-md-6 main-content-box">
+    <div class="address-section pataoverflow">
+      <div class="section-title text-center pt-3">
+        <h4>Your saved address for current location</h4>
+      </div>
+      <!-- Dynamic Address List Here -->
+      <div id="savedAddressList"></div>
+    </div>
+ 
+
+<!-- Proceed button -->
+<div class="text-center p-0 mt-3">
+  <button class="btn proceed-btn2">Proceed to Pay ₹347</button>
+</div>
+ </div>
+</div>
       </div>
       
     </div>
@@ -462,39 +276,215 @@
 
       <!-- Desktop: Logo + Location & Search -->
       <div class="d-flex align-items-center w-100  d-md-flex">
-        <a class="navbar-brand" href="index.php">
-          <img src="images/logo.png" alt="Logo">
+        <a class="navbar-brand" href="{{ route('home')}}">
+          <img src="{{ asset('public/assets/website/images/logo.png')}}" alt="Logo">
         </a>
       </div>
     </div>
   </nav>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const homeBtn = document.getElementById("pataHomeBtn2");
-      const workBtn = document.getElementById("pataWorkBtn2");
 
-      homeBtn.addEventListener("click", function () {
-        homeBtn.classList.add("active");
-        workBtn.classList.remove("active");
-      });
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const homeBtn = document.getElementById("pataHomeBtn");
+    const workBtn = document.getElementById("pataWorkBtn");
+    const addressType = document.getElementById("addressType");
+    const form = document.getElementById('addressForm');
+    const saveBtn = document.querySelector('.pata-save-btn');
 
-      workBtn.addEventListener("click", function () {
-        workBtn.classList.add("active");
-        homeBtn.classList.remove("active");
+    // Toggle Home/Work button
+    homeBtn.addEventListener("click", function () {
+      homeBtn.classList.add("active");
+      workBtn.classList.remove("active");
+      addressType.value = "home";
+    });
+
+    workBtn.addEventListener("click", function () {
+      workBtn.classList.add("active");
+      homeBtn.classList.remove("active");
+      addressType.value = "work";
+    });
+
+    // Submit form (Add/Update)
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const editId = form.getAttribute('data-edit-id');
+      const url = editId
+        ? `{{ url('address/update') }}/${editId}`
+        : `{{ route('address.store') }}`;
+      const method = 'POST';
+
+      fetch(url, {
+        method: method,
+        headers: {
+          'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: formData
+      })
+      .then(res => {
+        if (!res.ok) return res.text().then(text => { throw new Error(text) });
+        return res.json();
+      })
+      .then(data => {
+        alert(data.message);
+        resetForm();
+        loadSavedAddresses();
+      })
+      .catch(err => {
+        console.error('Submission error:', err);
+        alert('Something went wrong!');
       });
     });
 
-  </script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-  <!--------------- CUSTOM JAVASCRIPT START ----------------->
-  <script src="JS/custom.js"></script>
-  <!--------------- CUSTOM JAVASCRIPT END ----------------->
+    // Reset form after save/update
+    function resetForm() {
+      form.reset();
+      form.removeAttribute('data-edit-id');
+      saveBtn.textContent = 'Save Address';
+      addressType.value = "home";
+      homeBtn.classList.add("active");
+      workBtn.classList.remove("active");
+    }
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    // Load saved addresses
+    function loadSavedAddresses() {
+      fetch("{{ route('address.list') }}")
+        .then(res => res.json())
+        .then(data => {
+          const section = document.getElementById("savedAddressList");
+          section.innerHTML = '';
 
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+          if (!data.length) {
+            section.innerHTML = '<p class="text-center">No saved addresses</p>';
+            return;
+          }
+
+          data.forEach(addr => {
+            const icon = addr.type === 'work' ? '609/609803' : '69/69524';
+            const card = `
+              <div class="address-card">
+                <div class="address-left">
+                  <img src="https://cdn-icons-png.flaticon.com/128/${icon}.png" class="icon">
+                  <div>
+                    <strong>${addr.type.charAt(0).toUpperCase() + addr.type.slice(1)}</strong>
+                    <p>${addr.name}, ${addr.flat}, ${addr.area}, ${addr.landmark || ''}, ${addr.pincode}</p>
+                  </div>
+                </div>
+                <div class="address-right">
+                  <label class="fancy-checkbox">
+                    <input type="checkbox">
+                    <span class="custom-checkmark">&#10003;</span>
+                  </label>
+                  <div class="dropdown-wrapper">
+                    <span class="options" onclick="toggleDropdown(this)">&#8942;</span>
+                    <div class="dropdown-menu">
+                      <div onclick="editAddress(${addr.id})">Edit</div>
+                      <div onclick="deleteAddress(${addr.id})">Delete</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+            section.innerHTML += card;
+          });
+        });
+    }
+
+    // Load on page load
+    loadSavedAddresses();
+    window.loadSavedAddresses = loadSavedAddresses;
+    window.resetForm = resetForm;
+  });
+
+  // Toggle dropdown menu
+  function toggleDropdown(el) {
+    el.nextElementSibling.classList.toggle("show");
+  }
+
+  // Delete address
+  function deleteAddress(id) {
+    if (!confirm("Are you sure to delete this address?")) return;
+
+    fetch(`{{ url('address/delete') }}/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      alert(data.message);
+      loadSavedAddresses();
+    })
+    .catch(err => {
+      alert('Delete failed');
+    });
+  }
+
+  // Edit address
+  function editAddress(id) {
+  fetch(`{{ url('customer/address') }}/${id}`)
+    .then(res => res.json())
+    .then(data => {
+      const address = data.address;
+
+      if (!address) return alert("Address not found");
+
+      $('#addressForm').attr('data-edit-id', address.id);
+      $('#addressType').val(address.type);
+      $('input[name="area"]').val(address.area);
+      $('input[name="flat"]').val(address.flat);
+      $('input[name="landmark"]').val(address.landmark);
+      $('input[name="pincode"]').val(address.pincode);
+      $('input[name="name"]').val(address.name);
+      $('input[name="phone"]').val(address.phone);
+      $('input[name="alt_phone"]').val(address.alt_phone);
+
+      // Toggle active button
+      if (address.type === 'work') {
+        $('#pataHomeBtn').removeClass('active');
+        $('#pataWorkBtn').addClass('active');
+      } else {
+        $('#pataWorkBtn').removeClass('active');
+        $('#pataHomeBtn').addClass('active');
+      }
+
+      $('.pata-save-btn').text('Update Address');
+    })
+    .catch(err => {
+      alert('Failed to load address');
+      console.error(err);
+    });
+}
+
+</script>
+<script>
+  function toggleDropdown(el) {
+  document.querySelectorAll('.dropdown-menu').forEach(menu => {
+    menu.style.display = 'none'; // Close all open menus first
+  });
+  el.nextElementSibling.style.display = 'block'; // Open the clicked one
+}
+
+document.addEventListener('click', function (event) {
+  const isDropdown = event.target.closest('.dropdown-wrapper');
+
+  if (!isDropdown) {
+    // Clicked outside any dropdown → close all dropdowns
+    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+      menu.style.display = 'none';
+    });
+  }
+});
+</script>
+
+
+
+
+
 
 </body>
 

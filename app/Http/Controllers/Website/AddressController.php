@@ -57,15 +57,29 @@ class AddressController extends Controller
 
   
   
-  public function getAddresses()
+public function getAddresses(Request $request)
 {
-    $addresses = CustomerAddress::where('user_id', auth()->id())
-        ->whereNull('deleted_at') // if soft delete
-        ->latest()
-        ->get();
+    $query = CustomerAddress::where('user_id', auth()->id());
 
+    if ($request->has('id')) {
+        $address = $query->where('id', $request->id)->firstOrFail();
+        return response()->json(['address' => $address]);
+    }
+
+    $addresses = $query->whereNull('deleted_at')->latest()->get();
     return response()->json($addresses);
 }
+
+
+public function getSingleAddress($id)
+{
+    $address = CustomerAddress::where('user_id', auth()->id())
+        ->findOrFail($id);
+
+    return response()->json(['address' => $address]);
+}
+
+
   
   
   

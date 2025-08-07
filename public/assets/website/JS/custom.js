@@ -32,10 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("cartSidebar2").classList.add("show");
       });
     
-      document.getElementById("deliveryToggle").addEventListener("click", function () {
-        const el = document.getElementById("deliveryOptions");
-        el.style.display = el.style.display === "none" ? "block" : "none";
-      });
+  
       document.getElementById("deliveryToggle2").addEventListener("click", function () {
         const el = document.getElementById("deliveryOptions2");
         el.style.display = el.style.display === "none" ? "block" : "none";
@@ -68,17 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     
-      document.getElementById("walletBtn").addEventListener("click", function () {
-        const btn = this;
-        const walletText = document.getElementById("walletText");
-        if (btn.textContent.includes("Use")) {
-          btn.textContent = "Remove";
-          walletText.innerHTML = '<i class="fa fa-wallet me-1"></i> Added ₹5 in your wallet';
-        } else {
-          btn.textContent = "Use ₹5";
-          walletText.innerHTML = '<i class="fa fa-wallet me-1"></i> Save money by kwikily wallet';
-        }
-      });
+     
       document.getElementById("walletBtn2").addEventListener("click", function () {
         const btn = this;
         const walletText = document.getElementById("walletText2");
@@ -91,17 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     
-      document.getElementById("toggleBillBtn").addEventListener("click", function () {
-        const bill = document.getElementById("billSummary");
-        const icon = this.querySelector("i");
-        if (bill.style.display === "none") {
-          bill.style.display = "block";
-          this.innerHTML = "<i class='fa fa-chevron-up'></i>";
-        } else {
-          bill.style.display = "none";
-          this.innerHTML = "<i class='fa fa-chevron-down'></i>";
-        }
-      }); 
+  
       document.getElementById("toggleBillBtn2").addEventListener("click", function () {
         const bill = document.getElementById("billSummary2");
         const icon = this.querySelector("i");

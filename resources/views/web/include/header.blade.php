@@ -149,17 +149,7 @@
   </div>
 
   <div class=" p-3 rounded my-3 p-3">
-    <div class="d-flex justify-content-between align-items-center">
-      <div class="gotostore">
-        <h6 class="mb-0 fw-semibold" id="business_name"></h6>
-        <a href="storedetail.php"><small class="text-success">Go to store</small></a>
-      </div>
-      <div class="">
-      <button class="btn btn-sm delivery-toggle-btn" id="deliveryToggle">
-        <i class="fa fa-clock me-1"></i> Delivery in 30 min
-      </button>
-      </div>
-    </div>
+    
 
     <div id="deliveryOptions" class="" style="display: none;">
     <div class="mt-3">
@@ -255,7 +245,7 @@
   </div> --}}
 
   <!-- Free delivery notice -->
-  <div class="my-3 p-3">
+  {{-- <div class="my-3 p-3">
   <div class="xyz-info-box">
         <div class="d-flex align-items-center mb-2">
           <img src="images/demo.png" alt="Icon">
@@ -276,9 +266,9 @@
 
         <div class="xyz-right-text">*Progress Bar will reset in next order</div>
       </div>
-  </div>
+  </div> --}}
 
-  <div class=" mb-3 px-2" id="couponsxyz">
+  {{-- <div class=" mb-3 px-2" id="couponsxyz">
     <div class="">
       <h2 class="" id="">
         <button class="couponbutton" type="button" onclick="showModal()">
@@ -288,25 +278,14 @@
       </h2>
      
     </div>
-  </div>
+  </div> --}}
 
  
 
-  <div class="d-flex justify-content-between align-items-center bg-light p-2 rounded mb-3 wallet-box p-3">
-    <div>
-      <span id="walletText"><i class="fa fa-wallet me-1"></i> Kwiklly Points</span>
-    </div>
-    <button class="btn btn-outline-success btn-sm" id="walletBtn">Use ₹5</button>
-  </div>
 
-  <!-- Toggle Button -->
-  <div class="d-flex align-items-center p-3">
-    <h6 class="fw-bold mb-0">Bill Summary b</h6>
-    <button class="toggle-bill-btn" id="toggleBillBtn"><i class="fa fa-chevron-down"></i></button>
-  </div>
 
   <!-- Bill Summary -->
-  <div class=" pt-2 mt-2 p-3 billSummary" id="billSummary" style="display: none;">
+  {{-- <div class=" pt-2 mt-2 p-3 billSummary" id="billSummary" style="display: none;">
     <ul class="list-unstyled small">
       <li class="d-flex justify-content-between">
         <span>Item charge</span><span> <s class="text-muted"></s></span>
@@ -321,8 +300,8 @@
         <span>Wallet Discount</span><span class="text-success"></span>
       </li>
     </ul>
-    </div>
-    <div class="delivery-card">
+    </div> --}}
+    {{-- <div class="delivery-card">
         <div class="delivery-info">
         <div class="details">
             <div class="name">Proudly sponsored by</div>
@@ -330,8 +309,8 @@
         </div>
         </div>
          <div class="company"><span style="color:green;">BLUE</span><span style="color:#0047ab;"> DART</span></div>
-      </div>
-    <div class="grand-total-box p-3">
+      </div> --}}
+    {{-- <div class="grand-total-box p-3">
             <h6>Total charge</h6>
                 <div class="total-row">
                     <div class="price-wrapper">
@@ -342,9 +321,9 @@
                     <div class="saved-tag">Saved ₹53</div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- Grand Total Section -->
-            <div class="grand-total-box p-3">
+            {{-- <div class="grand-total-box p-3">
             <h3>Grand Total</h3>
                 <div class="total-row">
                     <div class="price-wrapper">
@@ -355,11 +334,11 @@
                     <div class="saved-tag">Saved ₹53</div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
         <!-- Bottom Fixed Section -->
        <div class="bottom-bar">
-          @auth
+          {{-- @auth
             <div class="delivery-section">
               <div class="delivery-left">
                 <i class="fas fa-home"></i>
@@ -370,7 +349,7 @@
               </div>
               <div class="change-link" onclick="openSidebar()">Add or Change</div>
             </div>
-          @endauth
+          @endauth --}}
           <div class="proceed-btn"></div>
         </div>
 
@@ -779,16 +758,16 @@
 
         <!-- Bottom Fixed Section -->
         <div class="bottom-bar">
-            <div class="delivery-section">
+            {{-- <div class="delivery-section">
             <div class="delivery-left">
                 <i class="fas fa-home"></i>
                 <div class="delivery-text">
                 <div class="label">Delivering to</div>
-                <div>Comfort Pg, Radhe Krishna Mandir, Saket, 201015</div>
+                <div>Comfort Pg, fgfg Radhe Krishna Mandir, Saket, 201015</div>
                 </div>
             </div>
             <div class="change-link"  onclick="openSidebar()">Change</div>
-            </div>
+            </div> --}}
             <div class="proceed-btn">Proceed to Pay ₹347</div>
         </div>
   </div>    
@@ -896,7 +875,7 @@
             </button> --}}
             <button class="cart-btn d-none d-md-flex" id="openCart">
               <i class="fa fa-shopping-cart"></i>
-              Cart (<span id="cart-count">{{ session('cart') ? count(session('cart')) : 0 }}</span>)
+              Cart (<span class="cart-count">{{ session('cart') ? count(session('cart')) : 0 }}</span>)
           </button>
 
         </div>
@@ -909,7 +888,7 @@
                 <i class="fas fa-chevron-down dropdown-icon"></i>
             </div>
             <button class="cart-btn" id="openCart2">
-                <i class="fas fa-shopping-cart"></i>{{ session('cart') ? count(session('cart')) : 0 }}
+                <i class="fas fa-shopping-cart"></i><span class="cart-count">{{ session('cart') ? count(session('cart')) : 0 }}</span>
             </button>
         </div>
 
@@ -945,10 +924,10 @@
     <a href="department.php" class="nav-item nav-link">
     <img src="{{ asset('public/assets/website/images/departmenticon.png')}}" alt="" style="height:25px; margin-bottom:6px;">Department
     </a>
-    <a href="store.php" class="nav-item nav-link">
+    <a href="{{ route('stores')}}" class="nav-item nav-link">
     <img src="{{ asset('public/assets/website/images/storeicon.png')}}" alt="" style="height:25px; margin-bottom:6px;"> &nbsp;&nbsp;Store&nbsp;&nbsp;
     </a>
-    <a href="login.php" class="nav-item nav-link">
+    <a href="{{ route('login') }}" class="nav-item nav-link">
     <img src="{{ asset('public/assets/website/images/joinicon.png')}}" alt="" style="height:25px; margin-bottom:6px;"> Join&nbsp;Us
     </a>
 </div>
@@ -1182,7 +1161,7 @@ function closeCart() {
 
 
 <script>
-  document.getElementById("deliveryToggle").addEventListener("click", function () {
+  document.getElementById("deliveryToggle2").addEventListener("click", function () {
     const btn = this;
     const isDelivery = btn.textContent.includes("Delivery in 30 min");
 
@@ -1197,7 +1176,7 @@ $(document).ready(function () {
 
     // Load cart initially
     $.get("{{ route('cart.data') }}", function (res) {
-        $('#cart-count').text(res.count);
+        $('.cart-count').text(res.count);
         loadSideCartItems(res.cart);
     });
 
@@ -1221,7 +1200,7 @@ $(document).ready(function () {
                 quantity: 1
             },
             success: function (res) {
-                $('#cart-count').text(res.count);
+                $('.cart-count').text(res.count);
                 loadSideCartItems(res.cart);
                 let qtyContainer = `
                     <div class="qty-container">
@@ -1243,7 +1222,7 @@ $(document).on('click', '.increment-btn', function () {
         _token: "{{ csrf_token() }}",
         key: key
     }, function (res) {
-        $('#cart-count').text(res.count);
+        $('.cart-count').text(res.count);
         loadSideCartItems(res.cart);
 
         // Find quantity from grouped cart
@@ -1269,7 +1248,7 @@ $(document).on('click', '.decrement-btn', function () {
         _token: "{{ csrf_token() }}",
         key: key
     }, function (res) {
-        $('#cart-count').text(res.count);
+        $('.cart-count').text(res.count);
         loadSideCartItems(res.cart);
 
         let productId = key.split('_')[0];
@@ -1334,6 +1313,28 @@ function loadSideCartItems(cartGroups) {
                             <button class="btn btn-danger increment-btn" data-key="${key}">+</button>
                         </div>
                     </div>
+                    <div class="my-3 p-3">
+  <div class="xyz-info-box">
+        <div class="d-flex align-items-center mb-2">
+          <img src="images/demo.png" alt="Icon">
+          <div class="ms-3 w-100">
+            <div>Add item worth ₹<b>5000</b> to get free cook<i class="fa fa-angle-right" style="position: absolute; right: 42px;color:#4caf50;"></i></button></div>
+            <div class="xyz-progress mt-1">
+              <div class="xyz-progress-bar" style="width: 40%"></div>
+            </div>
+          </div>
+        </div>
+<br>
+        <div class="xyz-clickable-div" data-state="default" onclick="changeText(this)">
+            <div>Add item worth ₹<b>60</b> more to get free delivery<i class="fa fa-angle-right" style="position: absolute; right: 42px;color:#4caf50;"></i></button></div>
+            <div class="xyz-progress mt-1">
+              <div class="xyz-progress-bar" style="width: 80%"></div>
+            </div>
+          </div>
+
+        <div class="xyz-right-text">*Progress Bar will reset in next order</div>
+      </div>
+  </div>
                 `;
             });
 
@@ -1375,7 +1376,7 @@ function updateBillSummary(total) {
         </ul>
     `);
 
-    $('.proceed-btn').html(`Proceed to Pay ₹${grandTotal}`);
+    $('.proceed-btn').html(`Proceed To Checkout`);
     $('.grand-total-box strong').html(`₹${grandTotal}`);
 }
 
@@ -1395,7 +1396,8 @@ function closeCart() {
         method: "GET",
         success: function (res) {
             if (res.logged_in) {
-                window.location.href = "{{ route('checkout.page') }}"; // Redirect to checkout
+                //window.location.href = "{{ route('checkout.page') }}";
+                window.location.href = "{{ route('cart.view') }}";
             } else {
                 // Option 1: Redirect to login page
                 window.location.href = "{{ route('login') }}";

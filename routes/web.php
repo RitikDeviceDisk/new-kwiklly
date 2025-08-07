@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Website\CartController;
 use App\Http\Controllers\Website\CheckoutController;
 use App\Http\Controllers\Website\AddressController;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,7 +35,7 @@ require __DIR__ . '/customer.php';
 //     return view('welcome');
 // });
 
-Route::get('checkout-page/', function () {
+Route::get('delivery-address/', function () {
     return view('web.checkoutaddress');
 });
 Route::get('checkout-delivery-page/', function () {
@@ -61,6 +61,9 @@ Route::post('/cart/decrement', [CartController::class, 'decrementQty'])->name('c
 Route::get('/cart-data', [CartController::class, 'getCartData'])->name('cart.data');
 
 
+
+
+
 Route::get('/auth-status', function () {
     return response()->json(['logged_in' => auth()->check()]);
 })->name('check.auth.status');
@@ -75,11 +78,30 @@ Route::middleware('auth')->group(function () {
     Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('checkout.place');
     Route::get('/order-success', fn () => view('web.order_success'))->name('order.success');
 
+        // New Update
+    Route::get('/cart/view', [CartController::class, 'viewCart'])->name('cart.view');
+    Route::get('/delivery-address', [CartController::class, 'deliveryAddress'])->name('delivery.address');
+
+    // Coupon
+    Route::post('/coupon/apply', [CartController::class, 'applyCoupon'])->name('coupon.apply');
+    // Route::post('/coupon/clear', [CartController::class, 'clearCoupon'])->name('coupon.clear');
+    Route::get('/coupon/vendorwise', [CartController::class, 'getVendorCoupons'])->name('coupon.vendorwise');
+    Route::post('/coupon/clear', [CartController::class, 'clearCoupon'])->name('coupon.clear');
+
+
+
+
+
+
+
     // Customer Address Routes
     Route::post('/address/store', [AddressController::class, 'store'])->name('address.store');
     Route::post('/address/update/{id}', [AddressController::class, 'update'])->name('address.update');
     Route::delete('/address/delete/{id}', [AddressController::class, 'delete'])->name('address.delete');
     Route::get('/customer/addresses', [AddressController::class, 'getAddresses'])->name('address.list');
+    Route::get('/customer/address/{id}', [AddressController::class, 'getSingleAddress']);
+
+
 
 
 });
