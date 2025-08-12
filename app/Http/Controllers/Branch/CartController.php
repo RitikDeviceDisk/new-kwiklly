@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Vendor;
+namespace App\Http\Controllers\Branch;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -8,38 +8,48 @@ use App\Models\CartItem;
 use App\Models\User;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\CartItemUpdatedNotification;
+use Illuminate\Support\Facades\Auth;
 
-class VendorCartController extends Controller
+class CartController extends Controller
 {
     // List all cart items related to this vendor
     public function index()
     {
-        $vendorId = auth()->id(); // assuming vendor is authenticated
-        $cartItems = CartItem::where('vendor_id', $vendorId)->with('user')->get();
-        return view('vendorpanel.cart', compact('cartItems','vendorId'));
+        $branch = Auth::guard('branch')->user();
+        if (!$branch) {
+            return redirect()->route('admin.login')->with('error', 'You are not authorized to access this page.');
+        }
+        $title = 'Admin | Cart';
+        $cartItems = CartItem::where('vendor_id', $branch->id)->with('user','featureImage')->get();
+        return view('branch.cart', compact('cartItems','admin','title'));
     }
 
     // Update quantity or remove cart item
-    public function update(Request $request)
+   public function update(Request $request)
     {
+        $branch = Auth::guard('branch')->user();
+
         $request->validate([
             'quantities' => 'required|array',
-            'quantities.*' => 'required|integer|min:1',
         ]);
 
         foreach ($request->quantities as $cartItemId => $quantity) {
-            $cartItem = CartItem::find($cartItemId);
+            if ($quantity < 1) continue;
 
+            $cartItem = CartItem::where('vendor_id', $branch->id)->find($cartItemId);
             if ($cartItem) {
                 $cartItem->quantity = $quantity;
                 $cartItem->save();
 
-                // Optionally notify the user
-                Notification::send($cartItem->user, new CartItemUpdatedNotification($cartItem));
+                // Notify user
+                $user = $cartItem->user;
+                if ($user) {
+                    Notification::send($user, new CartItemUpdatedNotification($cartItem));
+                }
             }
         }
 
-        return back()->with('success', 'Cart updated successfully.');
+        return back()->with('success', 'Cart updated and users notified.');
     }
 
     // Delete cart item

@@ -23,6 +23,10 @@ class Authenticate extends Middleware
                 return route('vendor.login');
             }
 
+            if ($request->is('branch/*')) {
+                return route('branch.login');
+            }
+
             // Default fallback for regular users
             return route('login');
         }

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Website\CartController;
 use App\Http\Controllers\Website\CheckoutController;
 use App\Http\Controllers\Website\AddressController;
-use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +29,7 @@ Route::get('/clear', function () {
 })->name('clear.all.cache');
 
 require __DIR__ . '/admin.php';
+require __DIR__ . '/branch.php';
 require __DIR__ . '/vendor.php';
 require __DIR__ . '/customer.php';
 // Route::get('/', function () {
@@ -110,5 +111,28 @@ Route::middleware('auth')->group(function () {
 
   /*End Website-------------------------------*/
 
+    // Route::get('/pay', function (PhonePeService $phonePe) {
+    //     $orderId = 'ORDER_' . uniqid();
+    //     $amount = 100; // ₹100
+    //     $callbackUrl = route('phonepe.callback', [], true); // FULL URL is important for PhonePe
 
+    //     $response = $phonePe->initiatePayment($orderId, $amount, $callbackUrl);
+
+    //     if (
+    //         isset($response['data']['instrumentResponse']['redirectInfo']['url'])
+    //     ) {
+    //         return redirect($response['data']['instrumentResponse']['redirectInfo']['url']);
+    //     }
+
+    //     \Log::error('PhonePe Payment Initiation Failed', ['response' => $response]);
+    //     return 'Failed to initiate payment. Please try again.';
+    // })->name('phonepe.pay'); // optional route name for testing
+
+    // Route::match(['POST', 'GET'], '/phonepe-callback', function (Request $request) {
+    //     \Log::info('PhonePe Callback Received:', $request->all());
+
+    //     // Optionally: validate response, update order status, etc.
+
+    //     return response('Callback received', 200);
+    // })->name('phonepe.callback');
 
