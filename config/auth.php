@@ -17,7 +17,7 @@ return [
         'guard' => 'web',
         'passwords' => 'users',
     ],
-    
+
 
     /*
     |--------------------------------------------------------------------------
@@ -49,6 +49,10 @@ return [
         'vendor' => [
             'driver' => 'session',
             'provider' => 'vendors',
+        ],
+        'branch' => [
+            'driver' => 'session',
+            'provider' => 'branches',
         ],
     ],
 
@@ -85,6 +89,10 @@ return [
             'model' => App\Models\VendorAdmin::class,
         ],
         'vendors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\VendorAdmin::class,
+        ],
+        'branches' => [
             'driver' => 'eloquent',
             'model' => App\Models\VendorAdmin::class,
         ],
