@@ -120,6 +120,12 @@
 
                             <!--li><a href="Home/orderreport');pan class="fa fa-search"></span> Orders Search</a></li-->
                         </ul>
+                        <li class="xn-openable">
+                        <a href="#"><span class="fa fa-cogs"></span> <span class="xn-text">Delivery Slots</span></a>
+                        <ul>
+                            <li><a href="{{ route('vendor.delivery-slots.index')}}"><span class="fa fa-heart"></span>Listing Delivery Slots</a></li>
+                            <li><a href="{{ route('vendor.delivery-slots.create')}}"><span class="fa fa-heart"></span> Create Delivery Slots</a></li>
+                        </ul>
                     </li>
                   </ul>
                 <!-- END X-NAVIGATION -->

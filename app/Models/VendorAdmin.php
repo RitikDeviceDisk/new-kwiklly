@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\DeliverySlot;
 
 class VendorAdmin extends Authenticatable implements MustVerifyEmail
 {
@@ -121,4 +122,10 @@ class VendorAdmin extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(DeliveryLocation::class, 'vendor_id');
     }
+
+    public function deliverySlots()
+    {
+        return $this->hasMany(DeliverySlot::class);
+    }
+
 }
