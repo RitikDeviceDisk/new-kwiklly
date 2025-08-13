@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Website\CartController;
 use App\Http\Controllers\Website\CheckoutController;
 use App\Http\Controllers\Website\AddressController;
-
+use Illuminate\Http\Request;
+use App\Http\Controllers\Vendor\DeliverySlotController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -90,6 +91,17 @@ Route::middleware('auth')->group(function () {
     Route::post('/coupon/clear', [CartController::class, 'clearCoupon'])->name('coupon.clear');
 
 
+
+    //delivery-slots
+    Route::get('/vendor/{vendorId}/delivery-slots', [DeliverySlotController::class, 'publicSlots'])
+    ->name('vendor.delivery-slots.public');
+    // in web.php
+    Route::post('/cart/delivery-slot', [CartController::class, 'setDeliverySlot'])->name('cart.delivery-slot.store');
+
+    // routes/web.php
+    Route::get('/vendor/{id}/delivery-slots', [CartController::class, 'getSlots']);
+    // routes/web.php
+Route::post('/cart/delivery-slot', [CartController::class, 'setDeliverySlot']);
 
 
 

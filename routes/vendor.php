@@ -11,7 +11,7 @@ use App\Http\Controllers\Vendor\ProductController;
 use App\Http\Controllers\Vendor\CouponController;
 use App\Http\Controllers\Vendor\OrderController;
 use App\Http\Controllers\Vendor\VendorCartController;
-
+use App\Http\Controllers\Vendor\DeliverySlotController;
 
 
 /*
@@ -56,6 +56,9 @@ Route::prefix('vendor')->name('vendor.')->middleware(['auth:vendor'])->group(fun
     Route::get('logout', [VendorAuthController::class, 'logout'])->name('logout');
 });
 
+
+
+
 /*Vendor Dashboard-------------------------------*/
 Route::prefix('vendor')->name('vendor.')->middleware(['auth:vendor', 'verified', 'vendor.approved'])->group(function () {
     // Route::get('logout', [VendorAuthController::class, 'logout'])->name('logout');
@@ -64,7 +67,8 @@ Route::prefix('vendor')->name('vendor.')->middleware(['auth:vendor', 'verified',
     Route::post('update-profile', [VendorDashboardController::class, 'updateProfile'])->name('updateProfile');
     Route::post('update-image', [VendorController::class, 'updateImage'])->name('updateImage');
 
-
+    //delivery-slots
+    Route::resource('delivery-slots', DeliverySlotController::class)->except(['show']);
 
     Route::post('/storetime', [VendorDashboardController::class, 'storeTime'])->name('updateStoreTime');
 

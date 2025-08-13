@@ -1151,12 +1151,48 @@ function renderCartSections(groupedCart, vendorCoupons = {}) {
                             </button>
                         </div>
                         <div>
-                               <button class="btn btn-sm delivery-toggle-btn" id="deliveryToggle-${vendorId}" data-vendor-id="${vendorId}">
-                                    <i class="fa fa-clock me-1"></i> Delivery in 30 min
+                                   <button class="btn btn-sm delivery-toggle-btn" data-vendor-id="${vendorId}">
+                                    <i class="fa fa-clock me-1"></i> Choose Delivery Time
                                 </button>
                         </div>
                     </div>
                     <div id="cartItems-${vendorSlug}" class="mt-3">
+
+
+                      <div id="deliveryOptions-${vendorId}" class="mt-2" style="display: none;">
+        <div class="mt-3">
+            <div class="d-flex align-items-center mb-2">
+                <input type="radio" name="deliveryOption-${vendorId}" class="form-check-input me-2" checked>
+                <div class="row w-100 gx-2">
+                    <div class="col">
+                        <select class="form-select form-select-sm">
+                            <option>Tomorrow</option>
+                            <option>Today</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select class="form-select form-select-sm">
+                            <option>10:00 AM - 1:00 PM</option>
+                            <option>1:00 PM - 4:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-check mb-3">
+                <input type="radio" name="deliveryOption-${vendorId}" class="form-check-input me-2" id="expressOption-${vendorId}">
+                <label for="expressOption-${vendorId}" class="form-check-label fw-semibold">
+                    Get order in 20 min for ₹5000
+                </label>
+            </div>
+            <div class="text-center">
+                <span class="text-muted d-block mb-2">or</span>
+                <button class="btn btn-success w-100 express-btn" data-vendor-id="${vendorId}">
+                    <i class="fa fa-bolt me-1"></i> Express Delivery in 20 mins
+                </button>
+            </div>
+        </div>
+    </div>
             `;
 
             $.each(items, function (key, item) {
@@ -1323,6 +1359,116 @@ function clearCoupon(vendorId) {
         }
     });
 }
+
+// Delivery toggle
+
+
+// Express delivery button
+$(document).on('click', '.express-btn', function () {
+    const vendorId = $(this).data('vendor-id');
+    alert(`Express delivery selected for vendor ID: ${vendorId}`);
+    // You can add actual logic here, e.g. update charges or mark express
+});
+
+
+// Show delivery options when button clicked
+$(document).on('click', '.delivery-toggle-btn', function () {
+    const vendorId = $(this).data('vendor-id');
+    const $container = $(`#deliveryOptions-${vendorId}`);
+
+    // Close other vendors' slots
+    $('.delivery-options-container').not($container).slideUp();
+
+    if ($container.data('loaded')) {
+        $container.slideToggle();
+        return;
+    }
+
+    $container.html('<div class="text-muted">Loading delivery options...</div>').slideDown();
+
+    $.get(`{{ url('/vendor') }}/${vendorId}/delivery-slots`, function (slotsGrouped) {
+        let dates = Object.keys(slotsGrouped);
+        let html = `<div class="mt-3">`;
+
+        /** ---------- Normal Delivery Section ---------- **/
+        if (dates.length > 0) {
+            html += `
+                <div class="d-flex align-items-center mb-2">
+                    <input type="radio" name="deliveryOption-${vendorId}" class="form-check-input me-2" checked>
+                    <div class="row w-100 gx-2">
+                        <div class="col">
+                            <select class="form-select form-select-sm date-select" data-vendor-id="${vendorId}">
+                                ${dates.map(date => `<option value="${date}">${date}</option>`).join('')}
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select class="form-select form-select-sm time-select" id="timeSelect-${vendorId}">
+                                ${slotsGrouped[dates[0]]
+                                    .filter(slot => slot.is_express == 0)
+                                    .map(slot => `<option>${slot.time_range}</option>`).join('')}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        /** ---------- Express Delivery Section ---------- **/
+        let expressSlot = Object.values(slotsGrouped)
+            .flat()
+            .find(slot => slot.is_express == 1);
+
+        if (expressSlot) {
+            html += `
+                <div class="form-check mb-3">
+                    <input type="radio" name="deliveryOption-${vendorId}" class="form-check-input me-2" id="expressOption-${vendorId}">
+                    <label for="expressOption-${vendorId}" class="form-check-label fw-semibold">
+                        Get order on ${expressSlot.date} (${expressSlot.time_range}) for ₹${expressSlot.express_charge}
+                    </label>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-success w-100 express-btn" data-vendor-id="${vendorId}">
+                        <i class="fa fa-bolt me-1"></i> Confirm Rescheduled Time
+                    </button>
+                </div>
+            `;
+        }
+
+        html += `</div>`;
+
+        $container.html(html).data('loaded', true);
+    });
+});
+
+/** ----------- Handle date change for normal delivery ----------- **/
+$(document).on('change', '.date-select', function () {
+    const vendorId = $(this).data('vendor-id');
+    const selectedDate = $(this).val();
+
+    $.get(`{{ url('/vendor') }}/${vendorId}/delivery-slots`, function (slotsGrouped) {
+        let times = slotsGrouped[selectedDate]
+            .filter(slot => slot.is_express == 0)
+            .map(slot => `<option>${slot.time_range}</option>`).join('');
+
+        $(`#timeSelect-${vendorId}`).html(times);
+    });
+});
+
+
+
+$(document).on('change', 'input[name^="delivery_slot_"]', function () {
+    const vendorId = $(this).attr('name').split('_')[2];
+    const slotId = $(this).val();
+
+    $.post(`/cart/delivery-slot`, {
+        _token: '{{ csrf_token() }}',
+        vendor_id: vendorId,
+        slot_id: slotId
+    });
+});
+
+
+
 </script>
 
 

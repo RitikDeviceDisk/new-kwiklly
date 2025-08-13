@@ -415,6 +415,31 @@ public function clearCoupon(Request $request)
 }
 
 
+public function getSlots($vendorId)
+{
+    $slots = DeliverySlot::where('vendor_id', $vendorId)
+        ->where('date', '>=', now()->toDateString())
+        ->orderBy('date')
+        ->get()
+        ->groupBy('date');
+    dd($slots);
+    return response()->json($slots);
+}
+
+// CartController.php
+public function setDeliverySlot(Request $request)
+{
+    $vendorId = $request->vendor_id;
+    $slotId = $request->slot_id;
+
+    $cartSlots = session()->get('delivery_slots', []);
+    $cartSlots[$vendorId] = $slotId;
+    session()->put('delivery_slots', $cartSlots);
+
+    return response()->json(['success' => true]);
+}
+
+
 
 
     
