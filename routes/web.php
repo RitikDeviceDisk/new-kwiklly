@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Website\HomeController;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Website\CartController;
 use App\Http\Controllers\Website\CheckoutController;
 use App\Http\Controllers\Website\AddressController;
-use Illuminate\Http\Request;
+
 use App\Http\Controllers\Vendor\DeliverySlotController;
 /*
 |--------------------------------------------------------------------------
